@@ -1,0 +1,171 @@
+//1.Print odd numbers in an array
+//2.Convert all the strings to title caps in a string array
+//3.Sum of all numbers in an array
+//4.Return all the prime numbers in an array
+//5.Return all the palindromes in an array
+//6.Return median of two sorted arrays of same size
+//7.Remove duplicates from an array
+//8.Rotate an array by k times and return the rotated array
+
+let arrayNumber = [5, 9,49,36,11,24,17]
+
+//1.Print odd numbers in an array
+let resultArray = (function (arrayNumber) {
+
+    return (arrayNumber.filter((item) => {
+
+        return item % 2 !== 0
+
+    }))
+})(arrayNumber);
+
+console.log("All odd numbers in an array: " + resultArray)
+  OUTPUT:All odd numbers in an array: 1,5,9,49,99,11,17
+
+
+//2.Convert all the strings to title caps in a string array
+  let stringArray = ["Karthikeka", 'is', 'a', 'smart', 'developer']
+
+let resultStringArray = (function (stringArray) {
+
+    return (stringArray.map((item) => {
+
+        return item.toUpperCase()
+
+    }))
+})(stringArray);
+OUTPUT:
+"KARTHIKEKA"	"IS"	"A"	"SMART"	"DEVELOPER"
+
+
+//3.Sum of all numbers in an array
+
+
+let arrayNumber = [5, 12, 32, 11, 15, 17, 19, 37, 33, 57, 55, 99, 101]
+let resultSumArray = (function (arrayNumber) {
+
+    return (arrayNumber.reduce((currentTotal, item) => {
+
+        return currentTotal + item
+
+    }, 0))
+})(arrayNumber);
+
+console.log("Sum of numbers in an array: " + resultSumArray)
+OUTPUT:Sum of numbers in an array: 493
+
+//4.Return all the prime numbers in an array
+let arrayNumber = [5, 12, 32, 11, 15, 17, 19, 37, 33, 57, 55, 99, 101]
+let resultPrimeArray = (function (arrayNumber) {
+
+    return (arrayNumber.filter((item) => {
+
+        for (i = 2; i < item; i++) {
+            if (item % i === 0)
+                return false
+        }
+
+        return true
+
+    }))
+})(arrayNumber);
+
+console.log("Prime numbers in an array: " + resultPrimeArray)
+
+
+
+//5.Return all the palindromes in an array
+
+let arrayNumber = [5, 12, 32, 11, 15, 17, 19, 37, 33, 57, 55, 99, 101]
+2	let resultPallindromeArray = (function (arrayNumber) {
+3	
+4	    return (arrayNumber.filter((item) => {
+5	
+6	        let temp = item + ""
+7	
+8	        if ((temp.split('').reverse().join('')) === item + "")
+9	            return true
+10	
+11	        return false
+12	
+13	    }))
+14	})(arrayNumber);
+15	
+16	console.log("Palindrome numbers in an array: " + resultPallindromeArray)
+
+OUTPUT:Palindrome numbers in an array: 5,11,33,55,99,101
+
+
+//6.Return median of two sorted arrays of same size
+let arr1 = [1, 2, 3, 4, 5, 8, 10]
+let arr2 = [8, 9, 10, 12, 16]
+
+let resultMedian = function (arr1, arr2) {
+
+    let result = []
+
+    let lenArr1 = arr1.length
+
+    let lenArr2 = arr2.length
+
+    if (lenArr1 % 2 === 0) {
+
+        console.log("Median of array 1: " + arr1[lenArr1 / 2])
+
+    } else {
+
+        console.log("Median of array 1: " + arr1[(lenArr1 + 1) / 2])
+    }
+
+    if (lenArr2 % 2 === 0) {
+
+        console.log("Median of array 2: " + arr2[lenArr2 / 2])
+
+    } else {
+
+        console.log("Median of array 2: " + arr2[(lenArr2 + 1) / 2])
+    }
+
+    return
+}(arr1, arr2)
+OUTPUT:Median of array 1: 5
+Median of array 2: 12
+
+//7.Remove duplicates from an array
+let arrayWithDup = [22, 22, 11, 10, 11, 56, 10, 1, 2, 6, 7, 56, 3, 9]
+
+let resultArrayWoDup = ((arrayWithDup, index) => {
+
+    return [...new Set(arrayWithDup)]
+
+})(arrayWithDup)
+
+console.log("Array without Duplicates " + resultArrayWoDup)
+OUTPUT:
+array
+0	1	2	3	4	5	6	7	8	9	10	11	12	13
+22	22	11	10	11	56	10	1	2	6	7	56	3	9
+array
+0	1	2	3	4	5	6	7	8	9
+22	11	10	56	1	2	6	7	3	9
+
+
+//8.Rotate an array by k times and return the rotated array
+
+let arrforrotation = [0, 1, 5, 6, 7, 9]
+let resultArrayShifted = ((array, k) => {
+
+    for (let i = 0; i < k; i++) {
+        let temp = array.shift()
+        array.push(temp)
+    }
+    return array
+
+})(arrforrotation, 3)
+
+console.log("Array roatated k times: " + resultArrayShifted)
+
+OUTPUT:Array roatated k times: 6,7,9,0,1,5
+
+
+
